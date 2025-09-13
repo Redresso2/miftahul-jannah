@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { 
@@ -14,14 +15,17 @@ import {
   User, 
   Settings, 
   LogIn, 
+  LogOut,
   Menu,
   X
 } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 import { cn } from "@/lib/utils";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // This will be connected to Supabase later
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
 
   const navigationItems = [
     { name: "Holy Quran", href: "#quran", icon: BookOpen },
@@ -77,13 +81,13 @@ const Header = () => {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56" align="end">
-                {isLoggedIn ? (
+                {user ? (
                   <>
                     <div className="flex items-center justify-start gap-2 p-2">
                       <div className="flex flex-col space-y-1 leading-none">
-                        <p className="font-medium">Guest User #1234</p>
+                        <p className="font-medium">{user.user_metadata?.full_name || "User"}</p>
                         <p className="w-[200px] truncate text-sm text-muted-foreground">
-                          guest1234@example.com
+                          {user.email}
                         </p>
                       </div>
                     </div>
@@ -97,7 +101,8 @@ const Header = () => {
                       My Bookmarks
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={() => setIsLoggedIn(false)}>
+                    <DropdownMenuItem onClick={signOut}>
+                      <LogOut className="mr-2 h-4 w-4" />
                       Logout
                     </DropdownMenuItem>
                   </>
@@ -110,7 +115,7 @@ const Header = () => {
                       </div>
                     </div>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={() => setIsLoggedIn(true)}>
+                    <DropdownMenuItem onClick={() => navigate("/auth")}>
                       <LogIn className="mr-2 h-4 w-4" />
                       Login
                     </DropdownMenuItem>
