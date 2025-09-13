@@ -41,7 +41,7 @@ const ContentSections = () => {
               
               <div className="flex gap-2 pt-4">
                 <Button className="flex-1" asChild>
-                  <a href="#quran-reader">
+                  <a href="/quran">
                     <BookOpen className="h-4 w-4 mr-2" />
                     Start Reading
                   </a>
@@ -87,7 +87,7 @@ const ContentSections = () => {
               
               <div className="flex gap-2 pt-4">
                 <Button className="flex-1" asChild>
-                  <a href="#duas-browser">
+                  <a href="/duas">
                     <Heart className="h-4 w-4 mr-2" />
                     Browse Collection
                   </a>

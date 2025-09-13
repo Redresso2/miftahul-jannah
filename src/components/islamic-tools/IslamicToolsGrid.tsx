@@ -18,56 +18,56 @@ const IslamicToolsGrid = () => {
       description: "Important Islamic dates and events",
       icon: Calendar,
       color: "bg-blue-500",
-      href: "#calendar"
+      href: "/calendar"
     },
     {
       title: "Namaz Timing",
       description: "Accurate daily prayer times",
       icon: Clock,
       color: "bg-green-500",
-      href: "#namaz"
+      href: "/namaz"
     },
     {
       title: "Tasbeeh Counter",
       description: "Digital counter for dhikr",
       icon: RotateCcw,
       color: "bg-purple-500",
-      href: "#tasbeeh"
+      href: "/tasbeeh"
     },
     {
       title: "Qibla Direction",
       description: "Find the direction of Kaaba",
       icon: Compass,
       color: "bg-orange-500",
-      href: "#qibla"
+      href: "/qibla"
     },
     {
       title: "Duas",
       description: "Collection of supplications",
       icon: Heart,
       color: "bg-pink-500",
-      href: "#duas"
+      href: "/duas"
     },
     {
       title: "Aamaals",
       description: "Islamic deeds and prayers",
       icon: BookOpen,
       color: "bg-indigo-500",
-      href: "#aamaals"
+      href: "/duas"
     },
     {
       title: "Taqeebat",
       description: "Supplementary prayers",
       icon: Settings,
       color: "bg-teal-500",
-      href: "#taqeebat"
+      href: "/duas"
     },
     {
       title: "Ziarat",
       description: "Pilgrimage information",
       icon: Archive,
       color: "bg-amber-500",
-      href: "#ziarat"
+      href: "/duas"
     }
   ];
 
