@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { cn } from "@/lib/utils";
+import logoImage from "@/assets/miftahul-jannah-logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,15 +33,24 @@ const Header = () => {
     { name: "Duas & Aamaals", href: "#duas", icon: Heart },
   ];
 
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary/80 text-primary-foreground font-bold text-lg">
-              م
-            </div>
+          <div className="flex items-center space-x-3">
+            <img 
+              src={logoImage} 
+              alt="Miftahul Jannah Logo" 
+              className="h-12 w-12 object-contain"
+            />
             <div className="hidden sm:block">
               <h1 className="text-xl font-bold text-foreground">Miftahul Jannah</h1>
               <p className="text-xs text-muted-foreground">Islamic Education</p>
@@ -55,13 +65,11 @@ const Header = () => {
                 <Button
                   key={item.name}
                   variant="ghost"
-                  asChild
-                  className="text-foreground hover:text-primary hover:bg-accent transition-colors"
+                  onClick={() => scrollToSection(item.href)}
+                  className="text-foreground hover:text-primary hover:bg-accent transition-colors flex items-center space-x-2"
                 >
-                  <a href={item.href} className="flex items-center space-x-2">
-                    <Icon className="h-4 w-4" />
-                    <span>{item.name}</span>
-                  </a>
+                  <Icon className="h-4 w-4" />
+                  <span>{item.name}</span>
                 </Button>
               );
             })}
@@ -151,14 +159,14 @@ const Header = () => {
                   <Button
                     key={item.name}
                     variant="ghost"
-                    asChild
-                    className="w-full justify-start text-foreground hover:text-primary hover:bg-accent"
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={() => {
+                      scrollToSection(item.href);
+                      setIsMenuOpen(false);
+                    }}
+                    className="w-full justify-start text-foreground hover:text-primary hover:bg-accent flex items-center space-x-2"
                   >
-                    <a href={item.href} className="flex items-center space-x-2">
-                      <Icon className="h-4 w-4" />
-                      <span>{item.name}</span>
-                    </a>
+                    <Icon className="h-4 w-4" />
+                    <span>{item.name}</span>
                   </Button>
                 );
               })}

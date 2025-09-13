@@ -3,7 +3,7 @@ import { AlertTriangle, Mail } from "lucide-react";
 
 const DevelopmentNotice = () => {
   const handleContactClick = () => {
-    window.location.href = "mailto:help.miftahuljannah@gmail.com?subject=Website Feedback&body=Hello, I found an issue with the website:";
+    window.open("mailto:help.miftahuljannah@gmail.com?subject=Website Feedback&body=Hello, I found an issue with the website:", "_blank");
   };
 
   return (
