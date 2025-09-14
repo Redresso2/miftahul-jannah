@@ -40,14 +40,15 @@ const TasbeehCounter = () => {
     setCount(prev => {
       const newCount = prev + 1;
       
-      // Check if we reached the target in Zahra mode
-      if (isZahraMode && newCount === zahraSequence[zahraStep].count) {
+      // Check if we will reach the target in Zahra mode
+      if (isZahraMode && newCount >= zahraSequence[zahraStep].count) {
         if (zahraStep < zahraSequence.length - 1) {
           // Move to next step
           setTimeout(() => {
             setZahraStep(prev => prev + 1);
             setCount(0);
-          }, 1000);
+          }, 500);
+          return zahraSequence[zahraStep].count; // Set to exact target
         } else {
           // Completed all steps
           setTimeout(() => {
@@ -59,7 +60,8 @@ const TasbeehCounter = () => {
             setHistory(prev => [newEntry, ...prev.slice(0, 9)]);
             setCount(0);
             setZahraStep(0);
-          }, 1000);
+          }, 500);
+          return zahraSequence[zahraStep].count; // Set to exact target
         }
       }
       
