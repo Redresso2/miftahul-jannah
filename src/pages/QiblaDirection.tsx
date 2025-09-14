@@ -12,21 +12,26 @@ const QiblaDirection = () => {
   const [error, setError] = useState<string | null>(null);
 
   const calculateQiblaDirection = (lat: number, lng: number) => {
-    // Kaaba coordinates
-    const kaabaLat = 21.4225;
-    const kaabaLng = 39.8262;
+    // Kaaba coordinates (more precise)
+    const kaabaLat = 21.4224779;
+    const kaabaLng = 39.8251832;
     
-    const phi1 = lat * (Math.PI / 180);
-    const phi2 = kaabaLat * (Math.PI / 180);
-    const deltaLng = (kaabaLng - lng) * (Math.PI / 180);
+    // Convert to radians
+    const φ1 = lat * (Math.PI / 180);
+    const φ2 = kaabaLat * (Math.PI / 180);
+    const Δλ = (kaabaLng - lng) * (Math.PI / 180);
     
-    const x = Math.sin(deltaLng) * Math.cos(phi2);
-    const y = Math.cos(phi1) * Math.sin(phi2) - Math.sin(phi1) * Math.cos(phi2) * Math.cos(deltaLng);
+    // Calculate bearing using the forward azimuth formula
+    const y = Math.sin(Δλ) * Math.cos(φ2);
+    const x = Math.cos(φ1) * Math.sin(φ2) - Math.sin(φ1) * Math.cos(φ2) * Math.cos(Δλ);
     
-    let bearing = Math.atan2(x, y) * (180 / Math.PI);
+    // Calculate initial bearing
+    let bearing = Math.atan2(y, x) * (180 / Math.PI);
+    
+    // Normalize to 0-360 degrees
     bearing = (bearing + 360) % 360;
     
-    return bearing;
+    return Math.round(bearing * 100) / 100; // Round to 2 decimal places
   };
 
   const getCurrentLocation = () => {
