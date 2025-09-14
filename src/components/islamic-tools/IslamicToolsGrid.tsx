@@ -42,31 +42,10 @@ const IslamicToolsGrid = () => {
       href: "/qibla"
     },
     {
-      title: "Duas",
-      description: "Collection of supplications",
+      title: "Resources",
+      description: "Duas, Aamaals, Taqeebat & Ziarat",
       icon: Heart,
       color: "bg-pink-500",
-      href: "/duas"
-    },
-    {
-      title: "Aamaals",
-      description: "Islamic deeds and prayers",
-      icon: BookOpen,
-      color: "bg-indigo-500",
-      href: "/duas"
-    },
-    {
-      title: "Taqeebat",
-      description: "Supplementary prayers",
-      icon: Settings,
-      color: "bg-teal-500",
-      href: "/duas"
-    },
-    {
-      title: "Ziarat",
-      description: "Pilgrimage information",
-      icon: Archive,
-      color: "bg-amber-500",
       href: "/duas"
     }
   ];
@@ -81,27 +60,27 @@ const IslamicToolsGrid = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-6">
           {tools.map((tool) => {
             const Icon = tool.icon;
             return (
               <Card key={tool.title} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6">
-                  <div className="flex flex-col items-center text-center space-y-4">
-                    <div className={`p-4 rounded-full ${tool.color} text-white`}>
-                      <Icon className="h-8 w-8" />
+                <CardContent className="p-3 md:p-6">
+                  <div className="flex flex-col items-center text-center space-y-2 md:space-y-4">
+                    <div className={`p-2 md:p-4 rounded-full ${tool.color} text-white`}>
+                      <Icon className="h-4 w-4 md:h-8 md:w-8" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg text-foreground mb-2">{tool.title}</h3>
-                      <p className="text-sm text-muted-foreground mb-4">{tool.description}</p>
+                      <h3 className="font-semibold text-sm md:text-lg text-foreground mb-1 md:mb-2">{tool.title}</h3>
+                      <p className="text-xs md:text-sm text-muted-foreground mb-2 md:mb-4 hidden sm:block">{tool.description}</p>
                     </div>
                     <Button
                       variant="outline"
                       size="sm"
                       asChild
-                      className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                      className="w-full text-xs md:text-sm group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
                     >
-                      <a href={tool.href}>Access Tool</a>
+                      <a href={tool.href}>Access</a>
                     </Button>
                   </div>
                 </CardContent>

@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Search, BookOpen, Play, Pause } from "lucide-react";
 import Header from "@/components/layout/Header";
+import { BookmarkButton } from "@/components/ui/bookmark-button";
 
 const QuranReader = () => {
   const [selectedSurah, setSelectedSurah] = useState("");
@@ -63,10 +64,16 @@ const QuranReader = () => {
             <Card>
               <CardHeader>
                 <div className="flex items-center justify-between">
-                  <CardTitle className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-2">
                     <BookOpen className="h-5 w-5" />
                     <span>Al-Fatiha - الفاتحة</span>
-                  </CardTitle>
+                    <BookmarkButton
+                      contentType="surah"
+                      contentId="1"
+                      title="Al-Fatiha"
+                      metadata={{ arabicName: "الفاتحة", verses: 7 }}
+                    />
+                  </div>
                   <Button variant="outline" size="sm">
                     <Play className="h-4 w-4 mr-2" />
                     Play Audio

@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Search, Heart, BookOpen, Star } from "lucide-react";
 import Header from "@/components/layout/Header";
+import { BookmarkButton } from "@/components/ui/bookmark-button";
 
 const DuasCollection = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -101,10 +102,16 @@ const DuasCollection = () => {
                 <Card key={dua.id} className="hover:shadow-lg transition-shadow">
                   <CardHeader>
                     <div className="flex items-center justify-between">
-                      <CardTitle className="flex items-center space-x-2">
+                      <div className="flex items-center space-x-2">
                         <Heart className="h-5 w-5" />
                         <span>{dua.title}</span>
-                      </CardTitle>
+                        <BookmarkButton
+                          contentType="dua"
+                          contentId={dua.id.toString()}
+                          title={dua.title}
+                          metadata={{ category: dua.category }}
+                        />
+                      </div>
                       <div className="flex items-center space-x-2">
                         <Badge variant="outline">{dua.category}</Badge>
                         <Button variant="ghost" size="sm">

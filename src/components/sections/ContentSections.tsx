@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Heart, Filter, Bookmark } from "lucide-react";
+import { BookOpen, Heart, Filter } from "lucide-react";
+import { BookmarkButton } from "@/components/ui/bookmark-button";
 
 const ContentSections = () => {
   return (
@@ -46,9 +47,6 @@ const ContentSections = () => {
                     Start Reading
                   </a>
                 </Button>
-                <Button variant="outline" size="icon">
-                  <Bookmark className="h-4 w-4" />
-                </Button>
               </div>
             </CardContent>
           </Card>
@@ -59,8 +57,8 @@ const ContentSections = () => {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4 mx-auto">
                 <Heart className="h-8 w-8 text-primary" />
               </div>
-              <CardTitle className="text-2xl text-foreground">Duas, Aamaals & More</CardTitle>
-              <p className="text-muted-foreground">Comprehensive collection of supplications, practices, and spiritual guidance</p>
+              <CardTitle className="text-2xl text-foreground">Resources</CardTitle>
+              <p className="text-muted-foreground">Duas, Aamaals, Taqeebat & Ziarat collection</p>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
@@ -91,9 +89,6 @@ const ContentSections = () => {
                     <Heart className="h-4 w-4 mr-2" />
                     Browse Collection
                   </a>
-                </Button>
-                <Button variant="outline" size="icon">
-                  <Filter className="h-4 w-4" />
                 </Button>
               </div>
             </CardContent>
