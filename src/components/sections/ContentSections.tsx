@@ -1,124 +1,136 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Heart, Filter } from "lucide-react";
-import { BookmarkButton } from "@/components/ui/bookmark-button";
+import { BookOpen, Heart, Filter, Search, Star } from "lucide-react";
+import TaqeebatSection from "./TaqeebatSection";
+import ZiyaratSection from "./ZiyaratSection";
 
 const ContentSections = () => {
   return (
-    <section className="py-16 bg-background" id="content">
-      <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Holy Quran Section */}
-          <Card className="shadow-card hover:shadow-lg transition-shadow duration-300" id="quran">
-            <CardHeader className="text-center pb-6">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4 mx-auto">
-                <BookOpen className="h-8 w-8 text-primary" />
-              </div>
-              <CardTitle className="text-2xl text-foreground">Holy Quran</CardTitle>
-              <p className="text-muted-foreground">Complete Quranic content with translations and commentary</p>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="text-center p-4 bg-secondary/50 rounded-lg">
-                  <div className="text-2xl font-bold text-primary">114</div>
-                  <div className="text-sm text-muted-foreground">Surahs</div>
+    <>
+      <section className="py-16 bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-foreground mb-4">Islamic Resources</h2>
+            <p className="text-lg text-muted-foreground">Comprehensive collection of authentic Islamic content</p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            {/* Holy Quran Card */}
+            <Card className="relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10"></div>
+              <CardHeader className="relative">
+                <div className="flex items-center space-x-3 mb-3">
+                  <div className="p-2 bg-primary/10 rounded-lg">
+                    <BookOpen className="h-6 w-6 text-primary" />
+                  </div>
+                  <CardTitle className="text-2xl text-primary">Holy Quran</CardTitle>
                 </div>
-                <div className="text-center p-4 bg-secondary/50 rounded-lg">
-                  <div className="text-2xl font-bold text-primary">6,236</div>
-                  <div className="text-sm text-muted-foreground">Verses</div>
+                <CardDescription className="text-base">
+                  Complete Quran with translations, audio recitations, and study tools
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="relative space-y-4">
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>114 Surahs</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>6,236 Verses</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Multiple Translations</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    <span>Audio Recitations</span>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="space-y-2">
-                <h4 className="font-semibold text-foreground">Features:</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Arabic text with English translation</li>
-                  <li>• Verse-by-verse navigation</li>
-                  <li>• Audio recitation support</li>
-                  <li>• Bookmark favorite verses</li>
-                  <li>• Search within text</li>
-                </ul>
-              </div>
-              
-              <div className="flex gap-2 pt-4">
-                <Button className="flex-1" asChild>
-                  <a href="/quran">
-                    <BookOpen className="h-4 w-4 mr-2" />
-                    Start Reading
-                  </a>
+                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                  Start Reading
                 </Button>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
 
-          {/* Duas & Aamaals Section */}
-          <Card className="shadow-card hover:shadow-lg transition-shadow duration-300" id="duas">
-            <CardHeader className="text-center pb-6">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4 mx-auto">
-                <Heart className="h-8 w-8 text-primary" />
-              </div>
-              <CardTitle className="text-2xl text-foreground">Resources</CardTitle>
-              <p className="text-muted-foreground">Duas, Aamaals, Taqeebat & Ziarat collection</p>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="text-center p-4 bg-secondary/50 rounded-lg">
-                  <div className="text-2xl font-bold text-primary">500+</div>
-                  <div className="text-sm text-muted-foreground">Duas</div>
+            {/* Resources Card */}
+            <Card className="relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-islamic-green/5 to-islamic-green/10"></div>
+              <CardHeader className="relative">
+                <div className="flex items-center space-x-3 mb-3">
+                  <div className="p-2 bg-islamic-green/10 rounded-lg">
+                    <Heart className="h-6 w-6 text-islamic-green" />
+                  </div>
+                  <CardTitle className="text-2xl text-islamic-green">Duas & Supplications</CardTitle>
                 </div>
-                <div className="text-center p-4 bg-secondary/50 rounded-lg">
-                  <div className="text-2xl font-bold text-primary">200+</div>
-                  <div className="text-sm text-muted-foreground">Aamaals</div>
+                <CardDescription className="text-base">
+                  Essential prayers and supplications for daily spiritual practice
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="relative space-y-4">
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-islamic-green rounded-full"></div>
+                    <span>Daily Duas</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-islamic-green rounded-full"></div>
+                    <span>Special Occasions</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-islamic-green rounded-full"></div>
+                    <span>Arabic & Translation</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-islamic-green rounded-full"></div>
+                    <span>Audio Guides</span>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="space-y-2">
-                <h4 className="font-semibold text-foreground">Categories:</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Daily supplications</li>
-                  <li>• Namaz and prayer guides</li>
-                  <li>• Taqeebat (supplementary prayers)</li>
-                  <li>• Ziarat (pilgrimage information)</li>
-                  <li>• Special occasion duas</li>
-                </ul>
-              </div>
-              
-              <div className="flex gap-2 pt-4">
-                <Button className="flex-1" asChild>
-                  <a href="/duas">
-                    <Heart className="h-4 w-4 mr-2" />
-                    Browse Collection
-                  </a>
+                <Button variant="outline" className="w-full border-islamic-green text-islamic-green hover:bg-islamic-green hover:text-islamic-green-foreground">
+                  Browse Collection
                 </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Smart Organization Card */}
+          <Card className="border-0 shadow-lg">
+            <CardHeader className="text-center">
+              <CardTitle className="text-xl">Smart Organization</CardTitle>
+              <CardDescription>Easily find what you're looking for with our intelligent categorization</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="text-center space-y-3">
+                  <div className="mx-auto w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <Search className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold">Advanced Search</h3>
+                  <p className="text-sm text-muted-foreground">Find specific verses, duas, or topics instantly</p>
+                </div>
+                <div className="text-center space-y-3">
+                  <div className="mx-auto w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <Filter className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold">Smart Filtering</h3>
+                  <p className="text-sm text-muted-foreground">Filter by category, occasion, or difficulty level</p>
+                </div>
+                <div className="text-center space-y-3">
+                  <div className="mx-auto w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <Star className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold">Personal Favorites</h3>
+                  <p className="text-sm text-muted-foreground">Bookmark and organize your preferred content</p>
+                </div>
               </div>
             </CardContent>
           </Card>
         </div>
-
-        {/* Sorting & Organization Info */}
-        <div className="mt-12 text-center">
-          <Card className="max-w-2xl mx-auto shadow-card">
-            <CardContent className="p-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/50 rounded-full mb-4">
-                <Filter className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">Smart Organization</h3>
-              <p className="text-muted-foreground mb-6">
-                Easily sort and organize content by category, topic, length, or personal preference. 
-                Create custom collections and access your bookmarks across all devices.
-              </p>
-              <div className="flex flex-wrap gap-2 justify-center">
-                {["Category", "Alphabetical", "Most Popular", "Recently Added", "My Bookmarks"].map((filter) => (
-                  <span key={filter} className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm">
-                    {filter}
-                  </span>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-    </section>
+      </section>
+      <TaqeebatSection />
+      <ZiyaratSection />
+    </>
   );
 };
 

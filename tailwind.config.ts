@@ -48,8 +48,8 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         islamic: {
-          gold: "hsl(var(--islamic-gold))",
-          "gold-foreground": "hsl(var(--islamic-gold-foreground))",
+          green: "hsl(var(--islamic-green))",
+          "green-foreground": "hsl(var(--islamic-green-foreground))",
         },
         notice: {
           bg: "hsl(var(--notice-bg))",

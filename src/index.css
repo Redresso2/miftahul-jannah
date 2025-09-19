@@ -37,12 +37,12 @@ All colors MUST be HSL.
     --input: 157 30% 90%;
     --ring: 157 100% 16%;
 
-    --islamic-gold: 45 100% 50%;
-    --islamic-gold-foreground: 157 100% 16%;
+    --islamic-green: 157 80% 25%;
+    --islamic-green-foreground: 0 0% 98%;
     
-    --notice-bg: 45 100% 95%;
-    --notice-border: 45 100% 80%;
-    --notice-text: 45 100% 30%;
+    --notice-bg: 157 30% 96%;
+    --notice-border: 157 40% 85%;
+    --notice-text: 157 100% 16%;
 
     --gradient-primary: linear-gradient(135deg, hsl(157 100% 16%), hsl(157 80% 25%));
     --gradient-secondary: linear-gradient(135deg, hsl(157 50% 95%), hsl(157 30% 96%));
@@ -101,9 +101,9 @@ All colors MUST be HSL.
     --input: 157 25% 18%;
     --ring: 157 70% 70%;
 
-    --notice-bg: 45 80% 15%;
-    --notice-border: 45 60% 30%;
-    --notice-text: 45 100% 80%;
+    --notice-bg: 157 25% 12%;
+    --notice-border: 157 35% 18%;
+    --notice-text: 157 30% 95%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
